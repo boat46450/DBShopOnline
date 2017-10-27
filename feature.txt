@@ -1,0 +1,24 @@
+Feature
+- Shop
+	- register
+	- login
+	- detail
+	- add product
+	- edit purchase status
+	- edit shipping tagging
+- Member
+	- register
+	- login
+	- detail
+	- check purchase status
+	- check shipping tagging
+	- history purchase
+- View Product
+	- view all
+	- filter by catalog
+	- filter by range of price
+	- search by name
+	- filter by band
+	- view one
+- Buy product
+- Rating (Optional)
