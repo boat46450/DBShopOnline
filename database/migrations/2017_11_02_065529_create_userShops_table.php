@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCustomersTable extends Migration
+class CreateUserShopsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('userShops', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('surname');
-            $table->string('address');
-            $table->string('city');
-            $table->string('zipcode');
-            $table->string('tel');
+            $table->integer('userId')->unsigned();
+            $table->integer('shopId')->unsigned();
             $table->timestamps();
+
+            $table->foreign('userId')->references('id')->on('users');
+            $table->foreign('shopId')->references('id')->on('shops');
         });
     }
 
@@ -32,6 +31,6 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('userShops');
     }
 }
