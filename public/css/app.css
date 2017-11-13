@@ -3,6 +3,22 @@
   src: url('/font/sukhumvitset.ttf') format("truetype");
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Sukhumvit";
+  color: #1c1c1c;
+}
+
+.no-ma-pa {
+  margin: 0;
+  padding: 0;
+}
+
+.flex1 {
+  flex: 1;
+}
+
 .gray {
   color : #3d3d3d;
 }

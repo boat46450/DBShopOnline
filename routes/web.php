@@ -16,6 +16,7 @@ Route::prefix('/')->group(function () {
 
     Route::prefix('/login')->group(function() {
         Route::get('/', 'LoginController@index');
+        Route::post('/', 'LoginController@login');
     });
     Route::get('/logout', 'LoginController@logout');
 });

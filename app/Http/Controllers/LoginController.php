@@ -16,4 +16,10 @@ class LoginController extends Controller
     public function index() {
         return view('pages.login.login');
     }
+
+    public function login(Request $request) {
+        $email = $request->username;
+        $pass = $request->password;
+        dd($email.'  '.$pass);
+    }
 }
