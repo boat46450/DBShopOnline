@@ -10,31 +10,50 @@ html, body {
   color: #1c1c1c;
 }
 
-.no-ma-pa {
-  margin: 0;
-  padding: 0;
-}
-
 .flex1 {
   flex: 1;
+}
+
+.no-pa {
+  padding: 0 !important;
+}
+.nav-logo {
+  width: 50%;
+  height: auto;
+}
+.nav-user-logo {
+  width: 15%;
+  height: auto;
+  margin-right: 5px;
+}
+.navbar a:link, .navbar a:hover,
+.navbar a:active, .navbar a:visited {
+  color: #1c1c1c;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+.nav-search {
+  width: 20%;
+  height: auto;
+}
+.nav-bag {
+  width: 5%;
+  height: 100%;
+  margin-left: 10px;
 }
 
 .gray {
   color : #3d3d3d;
 }
-
 .white {
   color : #fffffe;
 }
-
 .yellow {
   color : #ffce00;
 }
-
 .orange {
   color : #ff9e00;
 }
-
 .black {
   color : #1c1c1c;
 }

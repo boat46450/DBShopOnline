@@ -17,11 +17,11 @@
                             <img src="/img/logo.png" alt="logo" class="logo">
                         </div>
                         <div class="d-flex margin">
-                            <img src="/img/user.png" alt="user" class="iconInput">
+                            <img src="/img/icon/user.png" alt="user" class="iconInput">
                             <input type="email" name="username" id="username" class="flex1 input" placeholder="E-mail">
                         </div>
                         <div class="d-flex margin">
-                            <img src="/img/padlock.png" alt="pass" class="iconInput">
+                            <img src="/img/icon/padlock.png" alt="pass" class="iconInput">
                             <input type="password" name="password" id="password" class="flex1 input" placeholder="Password">
                         </div>
                         <div class="d-flex">

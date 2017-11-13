@@ -8,11 +8,6 @@
 
 @section('content')
     <section id="home">
-        <nav class="no-ma-pa">
-            <div class="nav-logo">
-                <img src="/img/logo.png" alt="logo" class="logo">
-            </div>
-            
-        </nav>
+        @include('utils.nav')
     </section>
 @endsection
