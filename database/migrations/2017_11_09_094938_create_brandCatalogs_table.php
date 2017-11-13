@@ -16,7 +16,7 @@ class CreateBrandCatalogsTable extends Migration
         Schema::create('brandCatalogs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('catalogId')->unsigned();
-            $table->integer('brandId')->unsigned();
+            $table->integer('brandId')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('catalogId')->references('id')->on('catalogs');

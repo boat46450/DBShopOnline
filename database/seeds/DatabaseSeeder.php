@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
                     'id' => null,
                     'email' => $r['email'],
                     'password' => $r['password'],
-                    'customerId' => $r['customerId'],
+                    'customerId' => (int)$r['customerid'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
@@ -67,8 +67,8 @@ class DatabaseSeeder extends Seeder
             foreach ($results as $r) {
                 DB::table('userShops')->insert([
                     'id' => null,
-                    'userId' => $r['userId'],
-                    'shopId' => $r['shopId'],
+                    'userId' => (int)$r['userid'],
+                    'shopId' => (int)$r['shopid'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
@@ -104,8 +104,8 @@ class DatabaseSeeder extends Seeder
             foreach ($results as $r) {
                 DB::table('brandCatalogs')->insert([
                     'id' => null,
-                    'catalogId' => $r['catalogId'],
-                    'brandId' => $r['brandId'],
+                    'catalogId' => (int)$r['catalogid'],
+                    'brandId' => is_null($r['brandid']) ? null : (int)$r['brandid'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
@@ -120,9 +120,10 @@ class DatabaseSeeder extends Seeder
                     'name' => $r['name'],
                     'detail' => $r['detail'],
                     'pic' => $r['pic'],
-                    'price' => $r['peice'],
+                    'price' => $r['price'],
                     'limit' => $r['limit'],
-                    'brandCatalogId' => $r['brandCatalogId'],
+                    'brandCatalogId' => (int)$r['brandcatalogid'],
+                    'shopId' => (int)$r['shopid'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
@@ -158,9 +159,9 @@ class DatabaseSeeder extends Seeder
             foreach ($results as $r) {
                 DB::table('orders')->insert([
                     'id' => null,
-                    'customerId' => $r['customerId'],
-                    'paymentId' => $r['paymentId'],
-                    'shippingId' => $r['shippingId'],
+                    'customerId' => (int)$r['customerid'],
+                    'paymentId' => (int)$r['paymentid'],
+                    'shippingId' => (int)$r['shippingid'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
@@ -172,9 +173,9 @@ class DatabaseSeeder extends Seeder
             foreach ($results as $r) {
                 DB::table('orderLists')->insert([
                     'id' => null,
-                    'orderId' => $r['orderId'],
-                    'productId' => $r['productId'],
-                    'quantity' => $r['quantity'],
+                    'orderId' => (int)$r['orderid'],
+                    'productId' => (int)$r['productid'],
+                    'quantity' => (int)$r['quantity'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
