@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        Schema::defaultStringLength(500);
     }
 
     /**
@@ -26,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $models = array(
             'Customer',
-            'Shop'
+            'Shop',
+            'Product'
         );
         foreach ($models as $model) {
             $this->app->bind("App\Repositories\\{$model}RepositoryInterface", "App\Repositories\\{$model}Repository");

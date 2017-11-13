@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('/')->group(function () {
+    Route::get('/', 'ProductController@index');
+
+    Route::prefix('/login')->group(function() {
+        Route::get('/', 'LoginController@index');
+    });
+    Route::get('/logout', 'LoginController@logout');
 });
+
+Route::get('/test', 'CustomerController@test');
