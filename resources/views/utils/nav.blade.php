@@ -33,7 +33,7 @@
   <div class="col-3 d-flex">
     <div class="flex1 d-flex align-items-center justify-content-center">
       <img src="/img/icon/user.png" alt="user" class="nav-user-logo">
-      Login | Register
+      <a href="/login">Login</a>
     </div>
   </div>
 </nav>

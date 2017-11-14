@@ -24,8 +24,15 @@
                             <img src="/img/icon/padlock.png" alt="pass" class="iconInput">
                             <input type="password" name="password" id="password" class="flex1 input" placeholder="Password">
                         </div>
-                        <div class="d-flex">
-                            <input type="submit" value="ENTER" class="flex1 submit">
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-warning button submit text">LOGIN</button>
+                            </div>
+                            <div class="col">
+                                <a href="/register">
+                                    <button type="button" class="btn btn-primary button text">REGISTER</button>
+                                </a>
+                            </div>
                         </div>
                     </form>
                 </div>

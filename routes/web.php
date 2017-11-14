@@ -19,6 +19,11 @@ Route::prefix('/')->group(function () {
         Route::post('/', 'LoginController@login');
     });
     Route::get('/logout', 'LoginController@logout');
+
+    Route::prefix('/register')->group(function() {
+        Route::get('/', 'LoginController@register');
+        Route::post('/', 'LoginController@submitRe');
+    });
 });
 
 Route::get('/test', 'CustomerController@test');

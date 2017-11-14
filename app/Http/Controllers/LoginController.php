@@ -22,4 +22,16 @@ class LoginController extends Controller
         $pass = $request->password;
         dd($email.'  '.$pass);
     }
+
+    public function logout() {
+
+    }
+
+    public function register() {
+        return view('pages.login.register');
+    }
+
+    public function submitRe(Request $request) {
+        dd($request->all());
+    }
 }
