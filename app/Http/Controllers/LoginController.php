@@ -24,17 +24,17 @@ class LoginController extends Controller
         $email = $request->username;
         $pass = $request->password;
         $results = $this->user->getByEP($email, $pass);
-        if($results->isEmpty()) {
+        if(empty($results)) {
             return redirect('/login')->withErrors(['wrong' => 'something wrong']);
         }
         $results = $this->customer->getById($results[0]->id);
         $this->createSesCust($results[0]);
-        // dd(session()->get('customer'));
         return redirect('/');
     }
 
     public function logout() {
         session()->forget('customer');
+        return redirect('/');
     }
 
     public function register() {

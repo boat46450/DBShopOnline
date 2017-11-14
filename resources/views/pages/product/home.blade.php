@@ -11,12 +11,29 @@
         @include('utils.nav')
         <div class="container-fluid">
             <div class="row text-center">
-                <div class="col-3">asdw
-                </div>
-                <div class="col-3">xzc</div>
-                <div class="col-3">fgd</div>
-                <div class="col-3">cvbn</div>
-                <div class="col-3">asd</div>
+                @foreach($products as $product)
+                    <div class="col-3 prod">
+                        <a href="{{ url('/product/'.$product->id) }}">
+                            <div class="minibox gray-bor">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <img src="{{ url('/img/'.$product->pic) }}" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="name">{{$product->name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="price">{{$product->price}} บาท</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

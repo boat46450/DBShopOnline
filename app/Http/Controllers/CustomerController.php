@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\CustomerRepositoryInterface;
-use Excel as E;
 
 class CustomerController extends Controller
 {
@@ -14,20 +13,11 @@ class CustomerController extends Controller
         $this->customer = $cust;
     }
 
-    public function test() {
-        $sheet = E::load('/public/data.xlsx')->get();
-        dd($sheet);
-        E::selectSheets('brand')->load('/public/data.xlsx', function($reader) {
-            $results = $reader->toArray();
-            dd(sizeof($results));
-            foreach ($results as $r) {
-                DB::table('brands')->insert([
-                    'id' => null,
-                    'name' => $r['name'],
-                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-                ]);
-            }
-        }); 
+    public function index() {
+        return view('pages.customer.index');
+    }
+
+    public function profile() {
+        return view('pages.customer.profile');
     }
 }

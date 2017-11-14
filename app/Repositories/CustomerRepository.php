@@ -6,14 +6,15 @@ use DB;
 
 class CustomerRepository implements CustomerRepositoryInterface {
   public function get() {
-    $results = DB::table('customers')->get();
+    $results = DB::select('select * 
+                            from customers');
     return $results;
   }
 
   public function getById($id) {
-    $results = DB::table('customers')
-              ->where('id', '=', $id)
-              ->get();
+    $results = DB::select('select * 
+                            from customers 
+                            where id = ?', [$id]);
     return $results;
   }
 }

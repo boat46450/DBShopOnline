@@ -14,10 +14,15 @@ class ProductController extends Controller
     }
 
     public function index() {
-        return view('pages.product.home');
+        $products = $this->product->get();
+        return view('pages.product.home', ['products' => $products]);
     }
 
-    protected function checkLogin() {
-        
+    public function popular() {
+        return view('pages.product.popular');
+    }
+
+    public function product($id) {
+        return view('pages.product.product');
     }
 }

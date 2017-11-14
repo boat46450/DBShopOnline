@@ -13,6 +13,7 @@
 
 Route::prefix('/')->group(function () {
     Route::get('/', 'ProductController@index');
+    Route::get('/popular', 'ProductController@popular');
 
     Route::prefix('/login')->group(function() {
         Route::get('/', 'LoginController@index');
@@ -24,6 +25,14 @@ Route::prefix('/')->group(function () {
         Route::get('/', 'LoginController@register');
         Route::post('/', 'LoginController@submitRe');
     });
-});
 
-Route::get('/test', 'CustomerController@test');
+    Route::prefix('/profile')->group(function() {
+        Route::get('/', 'CustomerController@index');
+        Route::get('/edit', 'CustomerController@profile');
+        Route::post('/edit', 'CustomerController@edit');
+    });
+
+    Route::prefix('/product')->group(function() {
+        Route::get('/{id}', 'ProductController@product');
+    });
+});
