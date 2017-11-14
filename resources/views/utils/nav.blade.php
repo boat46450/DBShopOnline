@@ -33,7 +33,20 @@
   <div class="col-3 d-flex">
     <div class="flex1 d-flex align-items-center justify-content-center">
       <img src="/img/icon/user.png" alt="user" class="nav-user-logo">
-      <a href="/login">Login</a>
+      @if(session('customer') == null)
+        <a href="/login">Login</a>
+      @else
+        <div class="pointer">
+          <div data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{session('customer')->name}} <i class="fa fa-caret-down"></i>
+          </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      @endif
     </div>
   </div>
 </nav>

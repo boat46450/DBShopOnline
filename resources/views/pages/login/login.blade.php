@@ -40,3 +40,11 @@
         </div>
     </section>
 @endsection
+
+@section('custom_script')
+  <script>
+    @if($errors->first('wrong'))
+      swal("เกิดข้อผิดพลาด", "คุณใส่ E-mail หรือ รหัสผ่านผิด กรุณาลองอีกครั้ง", "error");
+    @endif
+  </script>
+@endsection

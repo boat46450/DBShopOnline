@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $models = array(
             'Customer',
+            'User',
             'Shop',
             'Product'
         );
