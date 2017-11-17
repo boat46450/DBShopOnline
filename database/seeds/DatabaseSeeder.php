@@ -19,26 +19,17 @@ class DatabaseSeeder extends Seeder
             foreach ($results as $r) {
                 DB::table('customers')->insert([
                     'id' => null,
+                    'email' => $r['email'],
+                    'password' => $r['password'],
                     'name' => $r['name'],
                     'surname' => $r['surname'],
-                    'address' => $r['address'],
+                    'houseNum' => $r['housenum'],
+                    'street' => $r['street'],
+                    'subDistrict' => $r['subdistrict'],
+                    'district' => $r['district'],
                     'city' => $r['city'],
                     'zipcode' => $r['zipcode'],
                     'tel' => $r['tel'],
-                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-                ]);
-            }
-        });
-
-        E::selectSheets('user')->load('/public/data.xlsx', function($reader) {
-            $results = $reader->toArray();
-            foreach ($results as $r) {
-                DB::table('users')->insert([
-                    'id' => null,
-                    'email' => $r['email'],
-                    'password' => $r['password'],
-                    'customerId' => (int)$r['customerid'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
@@ -52,7 +43,10 @@ class DatabaseSeeder extends Seeder
                     'id' => null,
                     'name' => $r['name'],
                     'detail' => $r['detail'],
-                    'address' => $r['address'],
+                    'houseNum' => $r['housenum'],
+                    'street' => $r['street'],
+                    'subDistrict' => $r['subdistrict'],
+                    'district' => $r['district'],
                     'city' => $r['city'],
                     'zipcode' => $r['zipcode'],
                     'tel' => $r['tel'],
@@ -67,8 +61,8 @@ class DatabaseSeeder extends Seeder
             foreach ($results as $r) {
                 DB::table('userShops')->insert([
                     'id' => null,
-                    'userId' => (int)$r['userid'],
-                    'shopId' => (int)$r['shopid'],
+                    'customerId' => $r['customerid'],
+                    'shopId' => $r['shopid'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
@@ -99,19 +93,6 @@ class DatabaseSeeder extends Seeder
             }
         });
 
-        E::selectSheets('brandCatalog')->load('/public/data.xlsx', function($reader) {
-            $results = $reader->toArray();
-            foreach ($results as $r) {
-                DB::table('brandCatalogs')->insert([
-                    'id' => null,
-                    'catalogId' => (int)$r['catalogid'],
-                    'brandId' => is_null($r['brandid']) ? null : (int)$r['brandid'],
-                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-                ]);
-            }
-        });
-
         E::selectSheets('product')->load('/public/data.xlsx', function($reader) {
             $results = $reader->toArray();
             foreach ($results as $r) {
@@ -122,8 +103,9 @@ class DatabaseSeeder extends Seeder
                     'pic' => $r['pic'],
                     'price' => $r['price'],
                     'limit' => $r['limit'],
-                    'brandCatalogId' => (int)$r['brandcatalogid'],
-                    'shopId' => (int)$r['shopid'],
+                    'catalogId' => $r['catalogid'],
+                    'brandId' => $r['brandid'],
+                    'shopId' => $r['shopid'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
@@ -159,9 +141,16 @@ class DatabaseSeeder extends Seeder
             foreach ($results as $r) {
                 DB::table('orders')->insert([
                     'id' => null,
-                    'customerId' => (int)$r['customerid'],
-                    'paymentId' => (int)$r['paymentid'],
-                    'shippingId' => (int)$r['shippingid'],
+                    'customerId' => $r['customerid'],
+                    'paymentId' => $r['paymentid'],
+                    'shippingId' => $r['shippingid'],
+                    'totalPrice' => $r['total'],
+                    'houseNum' => $r['housenum'],
+                    'street' => $r['street'],
+                    'subDistrict' => $r['subdistrict'],
+                    'district' => $r['district'],
+                    'city' => $r['city'],
+                    'zipcode' => $r['zipcode'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
@@ -173,9 +162,10 @@ class DatabaseSeeder extends Seeder
             foreach ($results as $r) {
                 DB::table('orderLists')->insert([
                     'id' => null,
-                    'orderId' => (int)$r['orderid'],
-                    'productId' => (int)$r['productid'],
-                    'quantity' => (int)$r['quantity'],
+                    'orderId' => $r['orderid'],
+                    'productId' => $r['productid'],
+                    'quantity' => $r['quantity'],
+                    'price' => $r['price'],
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);

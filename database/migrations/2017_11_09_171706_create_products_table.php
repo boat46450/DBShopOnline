@@ -20,11 +20,13 @@ class CreateProductsTable extends Migration
             $table->string('pic');
             $table->integer('price');
             $table->integer('limit');
-            $table->integer('brandCatalogId')->unsigned();
+            $table->integer('catalogId')->unsigned();
+            $table->integer('brandId')->unsigned()->nullable();
             $table->integer('shopId')->unsigned();
             $table->timestamps();
 
-            $table->foreign('brandCatalogId')->references('id')->on('brandCatalogs');
+            $table->foreign('catalogId')->references('id')->on('catalogs');
+            $table->foreign('brandId')->references('id')->on('brands');
             $table->foreign('shopId')->references('id')->on('shops');
         });
     }

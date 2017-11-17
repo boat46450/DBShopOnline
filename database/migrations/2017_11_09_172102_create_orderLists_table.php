@@ -18,6 +18,7 @@ class CreateOrderListsTable extends Migration
             $table->integer('orderId')->unsigned();
             $table->integer('productId')->unsigned();
             $table->integer('quantity');
+            $table->integer('price');
             $table->timestamps();
 
             $table->foreign('orderId')->references('id')->on('orders');

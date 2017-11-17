@@ -15,11 +15,11 @@ class CreateUserShopsTable extends Migration
     {
         Schema::create('userShops', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userId')->unsigned();
+            $table->integer('customerId')->unsigned();
             $table->integer('shopId')->unsigned();
             $table->timestamps();
 
-            $table->foreign('userId')->references('id')->on('users');
+            $table->foreign('customerId')->references('id')->on('customers');
             $table->foreign('shopId')->references('id')->on('shops');
         });
     }

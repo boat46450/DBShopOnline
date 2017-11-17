@@ -17,7 +17,10 @@ class CreateShopsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('detail');
-            $table->string('address');
+            $table->string('houseNum');
+            $table->string('street');
+            $table->string('subDistrict');
+            $table->string('district');
             $table->string('city');
             $table->string('zipcode');
             $table->string('tel');

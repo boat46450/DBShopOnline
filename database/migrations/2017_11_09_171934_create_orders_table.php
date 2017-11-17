@@ -18,6 +18,13 @@ class CreateOrdersTable extends Migration
             $table->integer('customerId')->unsigned();
             $table->integer('paymentId')->unsigned();
             $table->integer('shippingId')->unsigned();
+            $table->integer('totalPrice')->nullable();
+            $table->string('houseNum');
+            $table->string('street');
+            $table->string('subDistrict');
+            $table->string('district');
+            $table->string('city');
+            $table->string('zipcode');
             $table->timestamps();
 
             $table->foreign('customerId')->references('id')->on('customers');
