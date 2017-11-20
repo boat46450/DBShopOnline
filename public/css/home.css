@@ -4,21 +4,21 @@
 }
 
 .minibox {
-  width: 60%;
+  width: 90%;
   margin: auto;
   height: 100%;
-}
-
-.gray-bor {
-  border: 1px solid #3d3d3d;
-}
-
-
-.name {
-  font-size: 1.1em;
 }
 
 .price {
   color : #ff9e00;
   font-size: 1.2em;
+}
+
+.info {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.catalog {
+  color: black;
 }

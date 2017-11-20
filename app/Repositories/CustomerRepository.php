@@ -17,4 +17,12 @@ class CustomerRepository implements CustomerRepositoryInterface {
                             where id = ?', [$id]);
     return $results;
   }
+
+  public function getByEP($email, $password) {
+    $results = DB::select('select * 
+                            from customers 
+                            where email = ? 
+                            and password = ?', [$email, $password]);
+    return $results;
+  }
 }

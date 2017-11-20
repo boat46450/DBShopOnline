@@ -14,10 +14,19 @@ class CustomerController extends Controller
     }
 
     public function index() {
-        return view('pages.customer.index');
+        return view('pages.customer.profile');
     }
 
     public function profile() {
-        return view('pages.customer.profile');
+        return view('pages.customer.edit');
+    }
+
+    public function edit(Request $request) {
+        dd($request->all());
+        return redirect('/profile');
+    }
+
+    public function order() {
+        return view('pages.customer.order');
     }
 }

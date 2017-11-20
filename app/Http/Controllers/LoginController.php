@@ -4,16 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\CustomerRepositoryInterface;
-use App\Repositories\UserRepositoryInterface;
 
 class LoginController extends Controller
 {
     protected $customer;
     protected $user;
     
-    public function __construct(CustomerRepositoryInterface $cust, UserRepositoryInterface $usr) {
+    public function __construct(CustomerRepositoryInterface $cust) {
         $this->customer = $cust;
-        $this->user = $usr;
     }
 
     public function index() {
@@ -23,11 +21,10 @@ class LoginController extends Controller
     public function login(Request $request) {
         $email = $request->username;
         $pass = $request->password;
-        $results = $this->user->getByEP($email, $pass);
+        $results = $this->customer->getByEP($email, $pass);
         if(empty($results)) {
             return redirect('/login')->withErrors(['wrong' => 'something wrong']);
         }
-        $results = $this->customer->getById($results[0]->id);
         $this->createSesCust($results[0]);
         return redirect('/');
     }
@@ -46,6 +43,7 @@ class LoginController extends Controller
     }
 
     protected function createSesCust($cust) {
+        $cust->tel = implode("", explode("-", $cust->tel));
         session()->put('customer', $cust);
     }
 }

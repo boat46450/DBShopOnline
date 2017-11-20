@@ -12,8 +12,13 @@
 */
 
 Route::prefix('/')->group(function () {
+
+    // home
+
     Route::get('/', 'ProductController@index');
     Route::get('/popular', 'ProductController@popular');
+
+    // login
 
     Route::prefix('/login')->group(function() {
         Route::get('/', 'LoginController@index');
@@ -26,13 +31,32 @@ Route::prefix('/')->group(function () {
         Route::post('/', 'LoginController@submitRe');
     });
 
+    // profile
+    
     Route::prefix('/profile')->group(function() {
         Route::get('/', 'CustomerController@index');
         Route::get('/edit', 'CustomerController@profile');
         Route::post('/edit', 'CustomerController@edit');
+        Route::get('/order', 'CustomerController@order');
     });
+
+    // product
 
     Route::prefix('/product')->group(function() {
         Route::get('/{id}', 'ProductController@product');
+        Route::post('/addCart', 'ProductController@addCart');
+    });
+
+    // catalog
+    Route::prefix('/catalog')->group(function() {
+        Route::get('/', 'ProductController@catalogs');
+    });
+
+    // shop
+
+    Route::prefix('/shop')->group(function() {
+        Route::get('/', 'ShopController@index');
     });
 });
+
+Route::get('/test', 'ProductController@test');

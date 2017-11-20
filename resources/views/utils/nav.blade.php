@@ -42,6 +42,8 @@
           </div>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="/profile">Profile</a>
+            <a class="dropdown-item" href="/profile/order">Order</a>
+            <a class="dropdown-item" href="/shop">Shop</a>
             <a class="dropdown-item" href="/logout">Logout</a>
           </div>
         </div>

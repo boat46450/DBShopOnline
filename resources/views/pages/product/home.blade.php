@@ -13,25 +13,20 @@
             <div class="row text-center">
                 @foreach($products as $product)
                     <div class="col-3 prod">
-                        <a href="{{ url('/product/'.$product->id) }}">
-                            <div class="minibox gray-bor">
-                                <div class="row">
-                                    <div class="col text-center">
-                                        <img src="{{ url('/img/'.$product->pic) }}" class="img-fluid">
-                                    </div>
+                        <div class="card minibox border-dark">
+                            <div class="text-center">
+                                <img src="{{ url('/img/'.$product->pic) }}" class="img-fluid">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{$product->name}}</h4>
+                                <div class="card-text">
+                                    <p class="price">ราคา {{$product->price}} บาท</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="name">{{$product->name}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="price">{{$product->price}} บาท</p>
-                                    </div>
+                                <div class="text-right">
+                                    <a href="{{ url('/product/'.$product->id) }}" class="btn btn-primary">ข้อมูลเพิ่มเติม <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 @endforeach
             </div>

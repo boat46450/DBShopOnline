@@ -1,0 +1,13 @@
+.con {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.price {
+  color : #ff9e00;
+  font-size: 1.2em;
+}
+
+.tag {
+  font-weight: bold;
+}

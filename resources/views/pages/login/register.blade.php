@@ -73,10 +73,43 @@
                 </div>
                 <div class="row">
                     <div class="col text-right">
-                        <p>ที่อยู่ :</p>
+                        <p>บ้านเลขที่</p>
                     </div>
                     <div class="col">
-                        <textarea name="address" id="address" class="input" rows="5" required></textarea>
+                        <input type="text" name="houseNum" id="houseNum" class="input" required>
+                    </div>
+                    <div class="col no-pa">
+                        <p class="red">*</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-right">
+                        <p>ถนน</p>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="street" id="street" class="input" required>
+                    </div>
+                    <div class="col no-pa">
+                        <p class="red">*</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-right">
+                        <p>แขวง</p>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="subDistrict" id="subDistrict" class="input" required>
+                    </div>
+                    <div class="col no-pa">
+                        <p class="red">*</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-right">
+                        <p>เขต</p>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="district" id="district" class="input" required>
                     </div>
                     <div class="col no-pa">
                         <p class="red">*</p>
