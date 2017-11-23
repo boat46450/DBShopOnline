@@ -17,6 +17,8 @@ Route::prefix('/')->group(function () {
 
     Route::get('/', 'ProductController@index');
     Route::get('/popular', 'ProductController@popular');
+    Route::post('/search', 'ProductController@search');
+    Route::get('/cart', 'CustomerController@cart');
 
     // login
 
@@ -50,13 +52,18 @@ Route::prefix('/')->group(function () {
     // catalog
     Route::prefix('/catalog')->group(function() {
         Route::get('/', 'ProductController@catalogs');
+        Route::get('/{id}', 'ProductController@catalog');
     });
 
     // shop
 
     Route::prefix('/shop')->group(function() {
         Route::get('/', 'ShopController@index');
+        Route::get('/create', 'ShopController@create');
+        Route::post('/create', 'ShopController@createSub');
+        Route::get('/{id}', 'ShopController@shop');
+        Route::get('/{id}/edit', 'ShopController@edit');
+        Route::post('/{id}/edit', 'ShopController@editSub');
+        Route::get('/{id}/add', 'ShopController@add');
     });
 });
-
-Route::get('/test', 'ProductController@test');

@@ -28,12 +28,29 @@
 							</div>
 						</div>
 					@endforeach
+					<div class="col-6">
+						<div class="card">
+							<h4 class="card-header text-center">สร้างร้านค้าของท่าน</h4>
+							<div class="card-body">
+								<a href="/shop/create" class="btn btn-primary">
+									<i class="fa fa-plus-square-o"></i>สร้าง
+								</a>
+							</div>
+						</div>
+					</div>
 				@else
-					<div class="col-12">
+					<div class="col-12 text-center">
 						<h2>คุณไม่มีร้านค้า</h2>
 					</div>
-					<div class="col-12">
-						<a href="/shop/create"><i class="fa fa-plus-square-o"></i>สร้างร้านค้า</a>
+					<div class="col-6">
+						<div class="card">
+							<h4 class="card-header text-center">สร้างร้านค้าของท่าน</h4>
+							<div class="card-body">
+								<a href="/shop/create" class="btn btn-primary">
+									<i class="fa fa-plus-square-o"></i>สร้าง
+								</a>
+							</div>
+						</div>
 					</div>
 				@endif
 			</div>

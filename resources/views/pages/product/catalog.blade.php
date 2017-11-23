@@ -1,13 +1,13 @@
 @extends('layouts.default')
 
-@section('title'){{ trim('POPULAR') }}@endsection
+@section('title'){{ trim('CATALOG') }}@endsection
 
 @section('custom_head')
     <link rel="stylesheet" href="/css/home.css">
 @endsection
 
 @section('content')
-    <section id="home">
+    <section id="catalog">
         @include('utils.nav')
         <div class="container-fluid">
             <div class="row text-center">

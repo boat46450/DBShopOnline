@@ -21,6 +21,13 @@ class ProductRepository implements ProductRepositoryInterface {
     return $results;
   }
 
+  public function getByName($name) {
+    $results = DB::select('select * 
+                            from products
+                            where name like ?', [$name]);
+    return $results;
+  }
+
   public function getById($id) {
     $results = DB::select('select p.*, s.name sname, c.name cname, b.name bname
                             from products p
@@ -42,6 +49,20 @@ class ProductRepository implements ProductRepositoryInterface {
   public function getCats() {
     $results = DB::select('select * 
                             from catalogs');
+    return $results;
+  }
+
+  public function getCat($id) {
+    $results = DB::select('select * 
+                            from products 
+                            where catalogId = ?', [$id]);
+    return $results;
+  }
+
+  public function getByShopId($id) {
+    $results = DB::select('select *
+                            from products
+                            where shopId = ?', [$id]);
     return $results;
   }
 }

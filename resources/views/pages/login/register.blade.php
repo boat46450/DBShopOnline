@@ -18,7 +18,7 @@
             <form method="post" action="/register">
                 {{ csrf_field() }}
                 <div class="row">
-                    <div class="col">
+                    <div class="col underline">
                         <h2>Account</h2>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col underline">
                         <h2>Profile</h2>
                     </div>
                 </div>

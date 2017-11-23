@@ -38,16 +38,26 @@
                     <p class="d-flex justify-content-center price"> ราคา {{$product->price}} บาท</p>
                     <hr>
                     <div class="d-flex justify-content-center">
-                        @if($product->limit - $brought > 0)
+                        @if(!empty($brought))
+                            @if($product->limit - $brought > 0)
+                                <form action="/product/addCart" method="post">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="productid" id="productid" value="{{$product->id}}">
+                                    <input type="hidden" name="price" id="price" value="{{$product->price}}">
+                                    จำนวน : <input type="number" name="quantity" id="" min="1" max="{{$product->limit - $brought}}" value="1">
+                                    <button type="submit" class="btn btn-warning">ใส่ตะกร้า</button>
+                                </form>
+                            @else
+                                <h3 class="text-danger">สินค้าหมด</h3>
+                            @endif
+                        @else
                             <form action="/product/addCart" method="post">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="productid" id="productid" value="{{$product->id}}">
                                 <input type="hidden" name="price" id="price" value="{{$product->price}}">
-                                จำนวน : <input type="number" name="quantity" id="" min="1" max="{{$product->limit - $brought}}" value="1">
+                                จำนวน : <input type="number" name="quantity" id="" min="1" max="{{$product->limit}}" value="1">
                                 <button type="submit" class="btn btn-warning">ใส่ตะกร้า</button>
                             </form>
-                        @else
-                            <h3 class="text-danger">สินค้าหมด</h3>
                         @endif
                     </div>
                 </div>

@@ -42,12 +42,11 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col-4 text-right">
-                        <p>ถนน</p>
-                    </div>
-                    <div class="col-4">
-                        <input type="text" name="street" id="street" class="input" required value="{{session('customer')->street}}">
-                    </div>
+                <div class="col-4 text-right">
+                    <p>ถนน</p>
+                </div>
+                <div class="col-4">
+                    <input type="text" name="street" id="street" class="input" required value="{{session('customer')->street}}">
                 </div>
                 <div class="row">
                     <div class="col-4 text-right">

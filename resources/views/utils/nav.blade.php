@@ -17,10 +17,13 @@
       </div>
     </div>
     <div class="flex1 d-flex">
-      <div class="input-group flex1">
-        <input type="text" class="form-control" placeholder="Search by product,categories,brand" name="search" id="search">
+      <div class="input-group flex1 align-items-start">
+        <form action="/search" method="post" id="form">
+          {{ csrf_field() }}
+          <input type="text" class="form-control search" placeholder="Search by product name" name="search" id="search">
+        </form>
         <span class="input-group-addon no-pa">
-          <button type="submit">
+          <button type="submit" form="form">
             <img src="/img/icon/magnifying-glass.png" alt="search" class="nav-search">
           </button>
         </span>

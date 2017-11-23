@@ -32,6 +32,9 @@ html, body {
   text-decoration: none;
   font-size: 1.5em;
 }
+.search {
+  width: 100% !important;
+}
 .nav-search {
   width: 20%;
   height: auto;
@@ -43,6 +46,18 @@ html, body {
 }
 .pointer {
   cursor: pointer !important;
+}
+#form {
+  width: 100% !important;
+}
+
+.img {
+  width: 30%;
+  height: auto;
+}
+
+#shop .fa-plus-square-o {
+  font-size: 5em;
 }
 
 .gray {

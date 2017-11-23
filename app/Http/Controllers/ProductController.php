@@ -26,11 +26,17 @@ class ProductController extends Controller
         return view('pages.product.popular', ['products' => $products]);
     }
 
+    public function search(Request $request) {
+        $name = '%'.$request->search.'%';
+        $products = $this->product->getByName($name);
+        return view('pages.product.popular', ['products' => $products]);
+    }
+
     public function product($id) {
         $product = $this->product->getById($id);
         $brought = $this->product->getBrought($id);
-        $brought = (int)$brought[0]->brought;
-        // dd(is_null($product[0]->brandId));
+        if(!empty($brought))
+            $brought = (int)$brought[0]->brought;
         return view('pages.product.product', ['product' => $product[0], 'brought' => $brought]);
     }
 
@@ -61,8 +67,8 @@ class ProductController extends Controller
         $catalogs = $this->product->getCats();
         return view('pages.product.catalogs', ['catalogs' => $catalogs]);
     }
-
-    public function test() {
-        dd(session()->get('cart'));
+    public function catalog($id) {
+        $products = $this->product->getCat($id);
+        return view('pages.product.catalog', ['products' => $products]);
     }
 }
