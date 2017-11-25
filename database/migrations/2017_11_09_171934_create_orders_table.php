@@ -17,13 +17,13 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('customerId')->unsigned();
             $table->integer('paymentId')->unsigned();
-            $table->integer('totalPrice')->nullable();
-            $table->string('houseNum');
-            $table->string('street');
-            $table->string('subDistrict');
-            $table->string('district');
-            $table->string('city');
-            $table->string('zipcode');
+            $table->integer('totalPrice');
+            $table->string('houseNum', 10);
+            $table->string('street', 30);
+            $table->string('subDistrict', 30);
+            $table->string('district', 30);
+            $table->string('city', 30);
+            $table->string('zipcode', 10);
             $table->timestamps();
 
             $table->foreign('customerId')->references('id')->on('customers');
