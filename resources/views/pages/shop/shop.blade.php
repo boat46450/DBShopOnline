@@ -117,7 +117,7 @@
                   <p class="price">ราคา {{$product->price}} บาท</p>
                 </div>
                 <div class="text-right">
-                  <a href="{{ url('/product/'.$product->id) }}" class="btn btn-primary">ข้อมูลเพิ่มเติม <i class="fa fa-arrow-right"></i></a>
+                  <a href="{{ url('/product/'.$product->id.'/edit') }}" class="btn btn-primary">แก้ไขข้อมูล <i class="fa fa-arrow-right"></i></a>
                 </div>
               </div>
             </div>

@@ -51,4 +51,21 @@ class ShopController extends Controller
   public function createSub(Request $request) {
     dd($request->all());
   }
+
+  public function add($id) {
+    $catalogs = $this->product->getCats();
+    $brands = $this->product->getBrands();
+    return view('pages.product.add', ['shopId' => $id, 'catalogs' => $catalogs, 'brands' => $brands]);
+  }
+
+  public function addSub($id, Request $request) {
+    dd($request->all());
+  }
+
+  public function proEdit($id) {
+    $product = $this->product->getById($id);
+    $catalogs = $this->product->getCats();
+    $brands = $this->product->getBrands();
+    return view('pages.product.edit', ['product' => $product, 'catalogs' => $catalogs, 'brands' => $brands]);
+  }
 }

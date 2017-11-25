@@ -43,6 +43,7 @@ Route::prefix('/')->group(function () {
     Route::prefix('/product')->group(function() {
         Route::get('/{id}', 'ProductController@product');
         Route::post('/addCart', 'ProductController@addCart');
+        Route::get('/{id}/edit', 'ShopController@proEdit');
     });
 
     // catalog
@@ -66,5 +67,6 @@ Route::prefix('/')->group(function () {
         Route::get('/{id}/edit', 'ShopController@edit');
         Route::post('/{id}/edit', 'ShopController@editSub');
         Route::get('/{id}/add', 'ShopController@add');
+        Route::post('/{id}/add', 'ShopController@addSub');
     });
 });

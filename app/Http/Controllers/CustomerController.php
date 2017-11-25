@@ -30,7 +30,10 @@ class CustomerController extends Controller
     }
 
     public function order() {
-        return view('pages.customer.order');
+        $id = session()->get('customer')->id;
+        $orders = $this->customer->getOrderById($id);
+        // dd($orders);
+        return view('pages.customer.order', ['orders' => $orders]);
     }
 
     public function cart() {
@@ -44,7 +47,6 @@ class CustomerController extends Controller
             array_push($product, $detail[0]);
             $sum += (int)$cart[$i]["price"] * (int)$cart[$i]["quantity"];
         }
-        // dd($product);
         return view('pages.customer.cart', ['product' => $product, 'sum' => $sum]);
     }
 }
