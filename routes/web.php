@@ -44,6 +44,7 @@ Route::prefix('/')->group(function () {
         Route::get('/{id}', 'ProductController@product');
         Route::post('/addCart', 'ProductController@addCart');
         Route::get('/{id}/edit', 'ShopController@proEdit');
+        Route::post('/{id}/edit', 'ShopController@proEditSub');
     });
 
     // catalog

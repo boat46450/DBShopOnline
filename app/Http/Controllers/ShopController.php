@@ -66,6 +66,10 @@ class ShopController extends Controller
     $product = $this->product->getById($id);
     $catalogs = $this->product->getCats();
     $brands = $this->product->getBrands();
-    return view('pages.product.edit', ['product' => $product, 'catalogs' => $catalogs, 'brands' => $brands]);
+    return view('pages.product.edit', ['product' => $product[0], 'catalogs' => $catalogs, 'brands' => $brands]);
+  }
+
+  public function proEditSub($id, Request $request) {
+    dd($request->all());
   }
 }

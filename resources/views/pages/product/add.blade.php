@@ -18,13 +18,17 @@
       <form method="post" action="/shop/{{$shopId}}/add">
         {{ csrf_field() }}
         <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4 text-center">
+            <img src="" alt="Product Image" class="img-fluid" id="img">
+          </div>
+        </div>
+        <div class="row">
           <div class="col-4 text-right">
             <p>ภาพสินค้า :</p>
           </div>
           <div class="col-4">
-            <input type="file" name="cover_img" id="cover_img" accept="image/*" class="text-center">
-          </div>
-          <div class="col-4" id="img">
+            <input type="file" name="pic" id="pic" accept="image/*" class="text-center">
           </div>
         </div>
         <div class="row">
