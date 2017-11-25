@@ -63,12 +63,24 @@ class ProductController extends Controller
         }
         return back();
     }
+
     public function catalogs() {
         $catalogs = $this->product->getCats();
         return view('pages.product.catalogs', ['catalogs' => $catalogs]);
     }
+
     public function catalog($id) {
         $products = $this->product->getCat($id);
         return view('pages.product.catalog', ['products' => $products]);
+    }
+
+    public function brands() {
+        $brands = $this->product->getBrands();
+        return view('pages.product.brands', ['brands' => $brands]);
+    }
+
+    public function brand($id) {
+        $products = $this->product->getBrand($id);
+        return view('pages.product.brand', ['products' => $products]);
     }
 }

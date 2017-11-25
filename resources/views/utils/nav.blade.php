@@ -15,6 +15,9 @@
       <div class="flex1">
         <a href="/catalog">CATALOG</a>
       </div>
+      <div class="flex1">
+        <a href="/brand">BRAND</a>
+      </div>
     </div>
     <div class="flex1 d-flex">
       <div class="input-group flex1 align-items-start">

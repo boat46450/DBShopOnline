@@ -17,12 +17,14 @@ class CreateOrderListsTable extends Migration
             $table->increments('id');
             $table->integer('orderId')->unsigned();
             $table->integer('productId')->unsigned();
+            $table->integer('shippingId')->unsigned();
             $table->integer('quantity');
             $table->integer('price');
             $table->timestamps();
 
             $table->foreign('orderId')->references('id')->on('orders');
             $table->foreign('productId')->references('id')->on('products');
+            $table->foreign('shippingId')->references('id')->on('shippings');
         });
     }
 

@@ -17,7 +17,6 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('customerId')->unsigned();
             $table->integer('paymentId')->unsigned();
-            $table->integer('shippingId')->unsigned();
             $table->integer('totalPrice')->nullable();
             $table->string('houseNum');
             $table->string('street');
@@ -29,7 +28,6 @@ class CreateOrdersTable extends Migration
 
             $table->foreign('customerId')->references('id')->on('customers');
             $table->foreign('paymentId')->references('id')->on('payments');
-            $table->foreign('shippingId')->references('id')->on('shippings');
         });
     }
 

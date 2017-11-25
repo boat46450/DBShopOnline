@@ -11,7 +11,7 @@ class ShopRepository implements ShopRepositoryInterface {
                             where exists (select *
                                           from userShops u
                                           where s.id = u.shopId
-                                            and u.customerId = ?)', [$id]);
+                                          and u.customerId = ?)', [$id]);
     return $results;
   }
 

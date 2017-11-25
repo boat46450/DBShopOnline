@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title'){{ trim('Catalogs') }}@endsection
+@section('title'){{ trim('CATALOGS') }}@endsection
 
 @section('custom_head')
     <link rel="stylesheet" href="/css/home.css">

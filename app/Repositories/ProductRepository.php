@@ -14,7 +14,7 @@ class ProductRepository implements ProductRepositoryInterface {
   public function getPopular() {
     $results = DB::select('select p.id, p.name, p.price, p.pic, sum(ol.quantity) 
                             from products p 
-                            join orderlists ol on p.id = ol.productId 
+                            join orderLists ol on p.id = ol.productId 
                             group by p.id, p.name, p.price, p.pic 
                             having sum(ol.quantity) >= 2
                             order by 5 DESC');
@@ -40,7 +40,7 @@ class ProductRepository implements ProductRepositoryInterface {
 
   public function getBrought($id) {
     $results = DB::select('select sum(ol.quantity) as brought
-                            from orderlists ol
+                            from orderLists ol
                             where ol.productId = ?
                             group by ol.productId', [$id]);
     return $results;
@@ -63,6 +63,27 @@ class ProductRepository implements ProductRepositoryInterface {
     $results = DB::select('select *
                             from products
                             where shopId = ?', [$id]);
+    return $results;
+  }
+
+  public function getBrands() {
+    $results = DB::select('select * 
+                            from brands');
+    return $results;
+  }
+
+  public function getBrand($id) {
+    $results = null;
+    if($id == 0) {
+      $results = DB::select('select *
+                              from products
+                              where brandId is null');
+    }
+    else {
+      $results = DB::select('select *
+                              from products
+                              where brandId = ?', [$id]);
+    }
     return $results;
   }
 }
