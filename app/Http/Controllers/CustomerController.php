@@ -32,7 +32,6 @@ class CustomerController extends Controller
     public function order() {
         $id = session()->get('customer')->id;
         $orders = $this->customer->getOrderById($id);
-        // dd($orders);
         return view('pages.customer.order', ['orders' => $orders]);
     }
 

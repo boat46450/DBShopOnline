@@ -49,14 +49,6 @@
         </div>
         <div class="row">
           <div class="col-4 text-right">
-            <p>จำนวน :</p>
-          </div>
-          <div class="col-4">
-            <input type="number" name="limit" id="limit" class="input" min="1" required value="{{ $product->limit }}">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4 text-right">
             <p>Catalog :</p>
           </div>
           <div class="col-4">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\ShopRepositoryInterface;
 use App\Repositories\ProductRepositoryInterface;
+use Carbon\Carbon;
 
 class ShopController extends Controller
 {
@@ -59,7 +60,39 @@ class ShopController extends Controller
   }
 
   public function addSub($id, Request $request) {
-    dd($request->all());
+    $name = $request->name;
+    $detail = $request->detail;
+    $pName = $request->pic->getClientOriginalName();
+    $picName = 'product'.Carbon::now(7)->format('Y-m-d-H-i-s').'.'.$this->getImgType($pName);
+    $request->pic->move(public_path('/img'), $picName);
+    $price = (int)$request->price;
+    $limit = (int)$request->limit;
+    $catalogId = null;
+    if($request->catalogId == 'other') {
+      $create = Carbon::now(7)->format('Y-m-d H:i:s');
+      $update = Carbon::now(7)->format('Y-m-d H:i:s');
+      $this->product->addCat($request->otherCat, $create, $update);
+      $catalogId = $this->product->getCatIdByName($request->otherCat)[0];
+    }
+    else {
+      $catalogId = (int)$request->catalogId;
+    }
+    $brandId = null;
+    if($request->brandId == 'other') {
+      $create = Carbon::now(7)->format('Y-m-d H:i:s');
+      $update = Carbon::now(7)->format('Y-m-d H:i:s');
+      $this->product->addBrand($request->otherBrand, $create, $update);
+      $brandId = $this->product->getBrandIdByName($request->otherBrand)[0];
+    }
+    else {
+      $brandId = ($request->brandId == '0')? null : (int)$request->brandId;
+    }
+    $shopId = (int)$id;
+    $create = Carbon::now(7)->format('Y-m-d H:i:s');
+    $update = Carbon::now(7)->format('Y-m-d H:i:s');
+    $this->product->addPro($name, $detail, $picName, $price, $limit, $catalogId, $brandId, $shopId, $create, $update);
+    $proId = $this->product->getIdByPic($picName)[0]->id;
+    return redirect('/product/'.$proId);
   }
 
   public function proEdit($id) {
@@ -70,6 +103,18 @@ class ShopController extends Controller
   }
 
   public function proEditSub($id, Request $request) {
-    dd($request->all());
+    $name = $request->name;
+    $detail = $request->detail;
+    $price = (int)$request->price;
+    $catalogId = (int)$request->catalogId;
+    $brandId = ($request->brandId == '0')? null : (int)$request->brandId;
+    $update = Carbon::now(7)->format('Y-m-d H:i:s');
+    $result = $this->product->update($id, $name, $detail, $price, $catalogId, $brandId, $update);
+    return redirect('/product/'.$id);
+  }
+
+  protected function getImgType($name) {
+    $type = explode('.', $name);
+    return $type[1];
   }
 }

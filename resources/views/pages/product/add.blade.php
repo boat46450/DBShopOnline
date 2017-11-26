@@ -15,7 +15,7 @@
           <h1>Product</h2>
         </div>
       </div>
-      <form method="post" action="/shop/{{$shopId}}/add">
+      <form method="post" action="/shop/{{$shopId}}/add" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="row">
           <div class="col-4"></div>
@@ -28,7 +28,7 @@
             <p>ภาพสินค้า :</p>
           </div>
           <div class="col-4">
-            <input type="file" name="pic" id="pic" accept="image/*" class="text-center">
+            <input type="file" name="pic" id="pic" accept="image/*" class="text-center" required>
           </div>
         </div>
         <div class="row">
@@ -60,7 +60,7 @@
             <p>จำนวน :</p>
           </div>
           <div class="col-4">
-            <input type="number" name="quantity" id="quantity" class="input" min="1" required>
+            <input type="number" name="limit" id="limit" class="input" min="1" required>
           </div>
         </div>
         <div class="row">

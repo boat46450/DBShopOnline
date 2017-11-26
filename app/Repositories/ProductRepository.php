@@ -86,4 +86,53 @@ class ProductRepository implements ProductRepositoryInterface {
     }
     return $results;
   }
+
+  public function update($id, $name, $detail, $price, $catalogId, $brandId, $update) {
+    $results = DB::update('update products
+                            set name = ?,
+                                detail = ?,
+                                price = ?,
+                                catalogId = ?,
+                                brandId = ?,
+                                updated_at = ?
+                            where id = ?', [$name, $detail, $price, $catalogId, $brandId, $update, $id]);
+    return $results;
+  }
+
+  public function addCat($name, $create, $update) {
+    DB::insert('insert into catalogs (id, name, created_at, updated_at)
+                values (?, ?, ?, ?)', [null, $name, $create, $update]);
+  }
+
+  public function getCatIdByName($name) {
+    $results = DB::select('select id
+                            from catalogs
+                            where name = ?', [$name]);
+    return $results;
+  }
+
+  public function addBrand($name, $create, $update) {
+    DB::insert('insert into brands (id, name, created_at, updated_at)
+                values (?, ?, ?, ?)', [null, $name, $create, $update]);
+  }
+
+  public function getBrandIdByName($name) {
+    $results = DB::select('select id
+                            from brands
+                            where name = ?', [$name]);
+    return $results;
+  }
+
+  public function addPro($name, $detail, $pic, $price, $limit, $catalogId, $brandId, $shopId, $create, $update) {
+    DB::insert('insert into products (id, name, detail, pic, price, `limit`, catalogId, brandId, shopId, created_at, updated_at) 
+                values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [null, $name, $detail, $pic, $price, $limit, $catalogId, $brandId, $shopId, $create, $update]);
+  }
+
+  public function getIdByPic($pic) {
+    $results = DB::select('select id
+                            from products
+                            where pic = ?', [$pic]);
+    return $results;
+  }
 }
